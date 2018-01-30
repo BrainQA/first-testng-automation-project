@@ -14,8 +14,6 @@ import ru.yandex.qatools.allure.annotations.Stories;
 import org.openqa.selenium.WebDriver;
 import java.util.concurrent.TimeUnit;
 
-import static org.testng.Assert.assertTrue;
-
 
 @Features("Google.com.googleTests")
 @Stories("LoginTest. Логинимся в Google аккаунт с некорректным и корректным паролем")

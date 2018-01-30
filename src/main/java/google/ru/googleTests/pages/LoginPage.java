@@ -53,7 +53,4 @@ public class LoginPage {
     //Аватарка аккаунта
     @FindBy(xpath = "//div[@class='gb_hb gb_6c gb_Fg gb_R' or @class='gb_Nc gb_jb gb_Fg gb_R']")
     protected WebElement accountButton;
-
-    //@FindBy()
-
 }

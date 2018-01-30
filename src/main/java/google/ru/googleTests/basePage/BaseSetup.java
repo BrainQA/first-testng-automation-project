@@ -49,7 +49,6 @@ public class BaseSetup {
         System.out.println("Page title is: " + driver.getTitle());
         //driver.getCurrentUrl().equals(homepage);
         System.out.println("Url: " + driver.getCurrentUrl());
-        //loginPageHelper.logout();
     }
 
     @Title("Инициализация данных")
