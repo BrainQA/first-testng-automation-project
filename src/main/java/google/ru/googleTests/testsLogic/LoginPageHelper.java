@@ -1,25 +1,13 @@
 package google.ru.googleTests.testsLogic;
 
 import google.ru.googleTests.pages.LoginPage;
-import google.ru.googleTests.pages.MainPage;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
-import static org.testng.AssertJUnit.assertEquals;
 
 public class LoginPageHelper extends LoginPage {
 
-    //public MainPage mainPage;
-    //public LoginPage loginPage;
-    //public BaseSetup testBase;
-    //public MainPageHelper mainPageHelper;
-
     public LoginPageHelper(WebDriver driver) {
         super(driver);
-        //mainPage = new MainPage(driver);
-        //loginPage = new LoginPage(driver);
-        //testBase = new BaseSetup();
-        //mainPageHelper = new MainPageHelper(driver);
     }
 
     //Логинимся в аккаунт Google

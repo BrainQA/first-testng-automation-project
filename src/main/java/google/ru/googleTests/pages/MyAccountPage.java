@@ -13,16 +13,7 @@ public class MyAccountPage {
     }
     public WebDriver driver;
 
-    //Проверка названия страницы "Мой аккаунт"
-//    @FindBy(xpath = "//h1[@class = 'paz5i']")
-//    protected WebElement titlePage;
-
     //Тайтл страницы Защиты аккаунта
     @FindBy(xpath = ("//div[@class='N4lOwd']"))
     protected WebElement pageProtect;
-
-//    public void checkTitlePage(String namePage2) {
-//        titlePage.getText().equals(namePage2);
-//        System.out.println("Title page:" + " " + namePage2);
-//    }
 }

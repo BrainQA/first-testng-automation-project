@@ -4,9 +4,6 @@ import google.ru.googleTests.pages.CalendarPage;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Formatter;
-import org.junit.Assume;
-
-import static org.junit.Assume.*;
 
 
 public class CalendarPageHelper extends CalendarPage {
