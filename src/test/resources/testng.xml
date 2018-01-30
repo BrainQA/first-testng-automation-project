@@ -4,8 +4,7 @@
     <test name="Test">
         <parameter name="path" value="/"/>
         <classes>
-            <class name="com.googleTests.LoginTest"/>
-            
+            <class name="LoginTest"/>
         </classes>
     </test>
 </suite>
