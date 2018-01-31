@@ -15,8 +15,8 @@ import static org.testng.Assert.assertTrue;
 
 public class CalendarPage extends BaseSetup {
 
-    public WebDriverWait wait;
-    public Actions actions;
+    private WebDriverWait wait;
+    private Actions actions;
 
 
     public CalendarPage(WebDriver driver) {
@@ -61,7 +61,7 @@ public class CalendarPage extends BaseSetup {
     //Периодичность мероприя Ежедневно из выпадающего списка
     protected void choosePeriodicityDaily() {
         WebElement periodicityEvent = driver.findElement(By.xpath("//div[@class='e2CuFe eU809d']"));
-        WebElement periodicityEventDaily = driver.findElement(By.xpath("//*[@id=\"YPCqFe\"]/div/div/div[1]/div[2]/div[2]/div/div[2]/div/div/div/div/div[1]/div[1]/div[2]/content"));
+        WebElement periodicityEventDaily = driver.findElement(By.xpath("//*[@id='YPCqFe']/div/div/div[1]/div[2]/div[2]/div/div[2]/div/div/div/div/div[1]/div[1]/div[2]/content"));
         actions.moveToElement(periodicityEvent).moveToElement(periodicityEventDaily).click().build().perform();
     }
 
@@ -130,13 +130,13 @@ public class CalendarPage extends BaseSetup {
     @FindBy(xpath = "//div[@class='jRJqje']")
     protected WebElement eventNameInCalendar;
 
-    //Еще один вариант поля мероприятия в календаре
-    protected void fieldEventNameInCalendar() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='jRJqje'], 'I'm learn Selenium + Java')]")));
-        assertNotNull(driver.findElement(By.xpath("//*[contains(text(), 'I'm learn Selenium + Java')]")));
-        String nameEvent=driver.findElement(By.xpath("//*[contains(text(), 'I'm learn Selenium + Java')]")).getAttribute("innerText");
-        assertTrue(nameEvent.equalsIgnoreCase("I'm learn Selenium + Java"));
-    }
+//    //Вариант поля мероприятия в календаре
+//    protected void fieldEventNameInCalendar() {
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='jRJqje'], 'I'm learn Selenium + Java')]")));
+//        assertNotNull(driver.findElement(By.xpath("//*[contains(text(), 'I'm learn Selenium + Java')]")));
+//        String nameEvent=driver.findElement(By.xpath("//*[contains(text(), 'I'm learn Selenium + Java')]")).getAttribute("innerText");
+//        assertTrue(nameEvent.equalsIgnoreCase("I'm learn Selenium + Java"));
+//    }
 
     protected void waitLoadedButtonDeleteEvent() {
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//div[@class='jO7h3c' or text()='Удалить']")));

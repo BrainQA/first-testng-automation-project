@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 
 import static org.testng.AssertJUnit.assertTrue;
 
-public class MyAccountPageHelper extends MyAccountPage {
 
+public class MyAccountPageHelper extends MyAccountPage {
 
     public MyAccountPageHelper(WebDriver driver) {
         super(driver);

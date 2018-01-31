@@ -46,7 +46,6 @@ public class BaseSetup {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(homepage);
         System.out.println("Page title is: " + driver.getTitle());
-        //driver.getCurrentUrl().equals(homepage);
         System.out.println("Url: " + driver.getCurrentUrl());
     }
 
@@ -89,7 +88,7 @@ public class BaseSetup {
 ////        driver.get(homepage);
 ////        userHelper = new UserHelper(driver);
 ////        navHelper = new NavigationHelper(driver, baseUrl);
-//    }
+//        }
 //    }
 
 

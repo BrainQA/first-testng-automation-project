@@ -11,13 +11,14 @@ public class MainPage {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
+
     public WebDriver driver;
 
     //Аватарка аккаунта
     @FindBy(xpath = "//div[@class='gb_hb gb_5c gb_Eg gb_R']")
     protected WebElement accountButton;
 
-    //Кнопка Войти для логина в Гугл аккаунте
+    //Кнопка Войти для логина в Гугл аккаунт
     @FindBy(id = "gb_70")
     protected WebElement enterButton;
 

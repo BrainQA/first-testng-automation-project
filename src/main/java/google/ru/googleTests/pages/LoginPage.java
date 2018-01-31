@@ -11,15 +11,11 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
-    protected MainPage mainPage;
-    protected LoginPage loginPage;
-    protected BaseSetup webDrManager;
-    protected MainPageHelper mainPageHelper;
-
     public LoginPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
+
     public WebDriver driver;
 
     //Кнопка Войти для логина в Гугл аккаунте

@@ -1,6 +1,7 @@
 package google.ru.googleTests;
 
 import google.ru.googleTests.basePage.BaseSetup;
+import google.ru.googleTests.pages.LoginPage;
 import google.ru.googleTests.pages.MainPage;
 import google.ru.googleTests.testsLogic.LoginPageHelper;
 import google.ru.googleTests.testsLogic.MainPageHelper;
@@ -20,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 public class LoginTest extends BaseSetup {
 
     private WebDriver driver;
-    public google.ru.googleTests.pages.LoginPage loginPage;
+    public LoginPage loginPage;
     public MainPage mainPage;
     public LoginPageHelper loginPageHelper;
     public MainPageHelper mainPageHelper;

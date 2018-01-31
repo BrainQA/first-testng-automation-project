@@ -11,6 +11,7 @@ public class MyAccountPage {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
+
     public WebDriver driver;
 
     //Тайтл страницы Защиты аккаунта

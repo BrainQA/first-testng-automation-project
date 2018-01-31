@@ -2,11 +2,16 @@ package google.ru.googleTests.testsLogic;
 
 import google.ru.googleTests.pages.CalendarPage;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.Formatter;
 
+import static org.junit.Assert.assertTrue;
+
 
 public class CalendarPageHelper extends CalendarPage {
+
+    private Actions actions;
 
     public CalendarPageHelper(WebDriver driver) {
         super(driver);
@@ -107,7 +112,7 @@ public class CalendarPageHelper extends CalendarPage {
 
     //Проверяем, что мероприятие сохранилось под введенным ранее именем
     public void checkNameEvent() {
-        fieldEventNameInCalendar();
+        assertTrue(eventNameInCalendar.getText().equals("iiiiivanovivan2@gmail.com"));
     }
 
     //Удаляем мероприятие из календаря

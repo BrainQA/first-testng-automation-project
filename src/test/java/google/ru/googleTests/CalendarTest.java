@@ -36,7 +36,7 @@ public class CalendarTest extends BaseSetup {
         private static String email = "iiiiivanovivan2@gmail.com";
         private static String password = "1234567890-";
         private static String nameEvent = "I'm learn Selenium + Java";
-        private static String repeatEvent = "Ежедневно";
+        //private static String repeatEvent = "Ежедневно";
         private static String placeLocation = "SeleniumJava";
         private static String textDescription = "I like to learn Java!";
     }

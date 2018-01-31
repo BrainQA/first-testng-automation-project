@@ -27,10 +27,6 @@ public class GooglePhotosTest extends BaseSetup {
     private static class TestData {
         static String email = "iiiiivanovivan2@gmail.com";
         static String password = "1234567890-";
-        static String wrongPassword = "-0987654321";
-        static String wrongEmail = "ivanovi.test@yandex.ru";
-        static String warningMessageWrongPassword = "Неверный пароль. Повторите попытку или нажмите на ссылку \"Забыли пароль?\", чтобы сбросить его.";
-        static String warningMessageWrongEmail = "Не удалось найти аккаунт Google";
     }
 
     @BeforeTest
@@ -42,7 +38,6 @@ public class GooglePhotosTest extends BaseSetup {
         driver.get(homepage);
         System.out.println(driver.getTitle());
         System.out.println(homepage);
-        loginPageHelper.logout();
     }
 
     @Title("Инициализация данных")

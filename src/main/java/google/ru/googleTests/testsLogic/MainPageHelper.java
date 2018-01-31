@@ -3,6 +3,7 @@ package google.ru.googleTests.testsLogic;
 import google.ru.googleTests.pages.MainPage;
 import org.openqa.selenium.WebDriver;
 
+
 public class MainPageHelper extends MainPage {
 
     public MainPageHelper(WebDriver driver) {

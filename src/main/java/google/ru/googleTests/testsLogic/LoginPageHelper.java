@@ -21,7 +21,6 @@ public class LoginPageHelper extends LoginPage {
         nextButton.click();
     }
 
-
     private void assertEquals(boolean equals) {
     }
 
