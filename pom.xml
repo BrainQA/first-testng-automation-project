@@ -17,12 +17,6 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.12</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-java</artifactId>
                 <version>3.8.1</version>
@@ -60,12 +54,6 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>ru.yandex.qatools.allure</groupId>
-                <artifactId>allure-java-annotations</artifactId>
-                <version>1.5.4</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
                 <groupId>net.thucydides</groupId>
                 <artifactId>thucydides-core</artifactId>
                 <version>0.9.275</version>
@@ -75,11 +63,6 @@
                 <groupId>ru.yandex.qatools.allure</groupId>
                 <artifactId>allure-java-annotations</artifactId>
                 <version>1.5.4</version>
-            </dependency>
-            <dependency>
-                <groupId>net.thucydides</groupId>
-                <artifactId>thucydides-core</artifactId>
-                <version>0.9.275</version>
             </dependency>
             <dependency>
                 <groupId>junit</groupId>
