@@ -10,8 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static org.testng.Assert.assertNotNull;
-import static org.testng.Assert.assertTrue;
 
 public class CalendarPage extends BaseSetup {
 
@@ -30,6 +28,10 @@ public class CalendarPage extends BaseSetup {
     @FindBy(xpath = "//*[@id='ogbkddg:8']")
     protected WebElement appCalendar;
 
+    //Ждем загрузки приложения Календарь
+    protected void waitAppCalendar() {
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@id='ogbkddg:8']")));
+    }
     //Кнопка ОК на всплывающем окне
     @FindBy(xpath = "//div[@class='O0WRkf zZhnYe e3Duub C0oVfc M9Bg4d']")
     protected WebElement buttonOK;
@@ -94,10 +96,6 @@ public class CalendarPage extends BaseSetup {
     @FindBy(xpath = "//*[@id='xCalOwn']")
     protected WebElement fieldWithEmail;
 
-    //Кнопка прикрепить файл
-    @FindBy(xpath = "//*[@id='xDesc']/div[1]/div[1]/div[1]/div")
-    protected WebElement buttonAttachFile;
-
     //Файл на Google Диске
     @FindBy(xpath = "//*[@class='pj-Ll-Vk-O-Kc']")
     protected WebElement fileOnGoogleDisk;
@@ -118,8 +116,40 @@ public class CalendarPage extends BaseSetup {
     @FindBy(id = ":1e")
     protected WebElement buttonPreviouslySelected;
 
+    //Кнопка Прикрепить файл
+    @FindBy(xpath = "//*[@id=\"xDesc\"]/div[1]/div[1]/div[1]/div/content/span")
+    protected WebElement buttonAttachFile;
+
+    //Кнопка Полужирный
+    @FindBy(xpath = "//*[@id=\"xDesc\"]/div[1]/div[1]/div[3]/content/span")
+    protected WebElement buttonBold;
+
+    //Кнопка Курсив
+    @FindBy(xpath = "//*[@id=\"xDesc\"]/div[1]/div[1]/div[4]/content/span")
+    protected WebElement buttonCurcive;
+
+    //Кнопка Подчеркнутый
+    @FindBy(xpath = "//*[@id=\"xDesc\"]/div[1]/div[1]/div[5]/content/span")
+    protected WebElement buttonUnderLine;
+
+    //Кнопка Нумерованный список
+    @FindBy(xpath = "//*[@id=\"xDesc\"]/div[1]/div[1]/div[7]/content/span")
+    protected WebElement buttonNumberedList;
+
+    //Маркированный список
+    @FindBy(xpath = "//*[@id=\"xDesc\"]/div[1]/div[1]/div[8]/content/span")
+    protected WebElement buttonMarkedList;
+
+    //Ссылка
+    @FindBy(xpath = "//*[@id=\"xDesc\"]/div[1]/div[1]/div[10]/content/span")
+    protected WebElement buttonLink;
+
+    //Удалить форматирование
+    @FindBy(xpath = "//*[@id=\"xDesc\"]/div[1]/div[1]/div[11]/content/span")
+    protected WebElement buttonRemoveFormatting;
+
     //Поле Описание
-    @FindBy(xpath = "//div[@id='CghhOe0']")
+    @FindBy(xpath = "//div[@id='xDescIn' or @class='Sz0nN b4sm0d']")
     protected WebElement fieldDescription;
 
     //Кнопка Сохранить
@@ -127,16 +157,12 @@ public class CalendarPage extends BaseSetup {
     protected WebElement buttonSave;
 
     //Поле мероприятие в календаре
-    @FindBy(xpath = "//div[@class='jRJqje']")
+    @FindBy(xpath = "//div[@class='jRJqje sMVRZe']")
     protected WebElement eventNameInCalendar;
 
-//    //Вариант поля мероприятия в календаре
-//    protected void fieldEventNameInCalendar() {
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='jRJqje'], 'I'm learn Selenium + Java')]")));
-//        assertNotNull(driver.findElement(By.xpath("//*[contains(text(), 'I'm learn Selenium + Java')]")));
-//        String nameEvent=driver.findElement(By.xpath("//*[contains(text(), 'I'm learn Selenium + Java')]")).getAttribute("innerText");
-//        assertTrue(nameEvent.equalsIgnoreCase("I'm learn Selenium + Java"));
-//    }
+    //Кнопка удалить Мероприятие
+    @FindBy(xpath = "//*[@id=\"xDetDlgDelBu\"]/content/span")
+    protected WebElement buttonDeleteEvent;
 
     protected void waitLoadedButtonDeleteEvent() {
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//div[@class='jO7h3c' or text()='Удалить']")));

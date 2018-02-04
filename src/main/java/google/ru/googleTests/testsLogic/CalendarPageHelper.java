@@ -6,7 +6,8 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.util.Formatter;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 
 public class CalendarPageHelper extends CalendarPage {
@@ -19,6 +20,7 @@ public class CalendarPageHelper extends CalendarPage {
 
     //Кликаем на значок приложения Календарь
     public void clickAppCalendar() {
+        waitAppCalendar();
         appCalendar.click();
     }
 
@@ -57,10 +59,9 @@ public class CalendarPageHelper extends CalendarPage {
     }
 
     //Проверяем доступность поля Укажите место проведения
-    public void inputPlaceLocation(String placeLocation) throws InterruptedException {
+    public void inputPlaceLocation(String placeLocation) {
         fieldPlaceLocation.isEnabled();
         fieldPlaceLocation.sendKeys(placeLocation);
-        //Thread.sleep(1000);
     }
 
     //Проверяем доступность кнопки Добавить видеоконференцию
@@ -75,7 +76,8 @@ public class CalendarPageHelper extends CalendarPage {
 
     //Проверяем, что поле с email соответствует аккаунту
     public void checkAccordanceEmail(String email) {
-        String fieldEmail = String.valueOf(fieldWithEmail.getText().equals(email));
+        String fieldEmail = fieldWithEmail.getText();
+        assertEquals(email, fieldEmail);
         System.out.println("Cовпадение email: " + fieldEmail);
     }
 
@@ -99,10 +101,26 @@ public class CalendarPageHelper extends CalendarPage {
         buttonPreviouslySelected.click();
     }
 
+    //Проверяем доступность кнопок в поле Описание
+    public void checkButtonFieldDescription() {
+        buttonAttachFile.isEnabled();
+        buttonBold.isEnabled();
+        buttonCurcive.isEnabled();
+        buttonUnderLine.isEnabled();
+        buttonNumberedList.isEnabled();
+        buttonMarkedList.isEnabled();
+        buttonLink.isEnabled();
+        buttonRemoveFormatting.isEnabled();
+    }
+
     //Проверяем поле Описание и вводим текст
-    public void checkFieldDescriptionAndInputText(String textDescription) {
-        fieldDescription.isSelected();
-        fieldDescription.sendKeys(textDescription);
+    public void checkFieldDescriptionAndInputText() {
+        if (fieldDescription.isSelected()) {
+        fieldDescription.click();
+        fieldDescription.sendKeys("I like to learn Java!"); }
+        else {
+            System.out.println("Поле 'Описание' не доступно для редактирования");
+        }
     }
 
     //Нажимаем кнопку Сохранить
@@ -111,8 +129,14 @@ public class CalendarPageHelper extends CalendarPage {
     }
 
     //Проверяем, что мероприятие сохранилось под введенным ранее именем
-    public void checkNameEvent() {
-        assertTrue(eventNameInCalendar.getText().equals("iiiiivanovivan2@gmail.com"));
+    public void checkNameEvent(String nameEvent) {
+        assertNotNull(eventNameInCalendar);
+    }
+
+    //Удаляем мероприятие из календаря
+    public void deleteEvent(){
+        eventNameInCalendar.click();
+        buttonDeleteEvent.click();
     }
 
     //Удаляем мероприятие из календаря

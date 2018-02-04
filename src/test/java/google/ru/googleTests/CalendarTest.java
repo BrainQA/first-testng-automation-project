@@ -35,8 +35,8 @@ public class CalendarTest extends BaseSetup {
     private static class TestData {
         private static String email = "iiiiivanovivan2@gmail.com";
         private static String password = "1234567890-";
-        private static String nameEvent = "I'm learn Selenium + Java";
-        //private static String repeatEvent = "Ежедневно";
+        private static String nameEvent = "I am learn Selenium + Java";
+        private static String repeatEvent = "Ежедневно";
         private static String placeLocation = "SeleniumJava";
         private static String textDescription = "I like to learn Java!";
     }
@@ -144,10 +144,16 @@ public class CalendarTest extends BaseSetup {
         // TODO: 29.01.2018 Допилить аттач файла
     }
 
-    @Title("Проверяем доступность поля Описание и вводим текст описания")
+    @Title("Проверяем доступность кнопок в панеле Элементы управления форматированием")
     @Test(dependsOnMethods = "checkEmailAccordanceAccount")
+    public void checkButtonFieldDescription() {
+        calendarPageHelper.checkButtonFieldDescription();
+    }
+
+    @Title("Проверяем доступность поля Описание и вводим текст описания")
+    @Test(dependsOnMethods = "checkButtonFieldDescription")
     public void checkFieldDescriptionAndInputText() {
-        calendarPageHelper.checkFieldDescriptionAndInputText(TestData.textDescription);
+        calendarPageHelper.checkFieldDescriptionAndInputText();
     }
 
     @Title("Нажимаем кнопку Сохранить мероприятие")
@@ -159,13 +165,13 @@ public class CalendarTest extends BaseSetup {
     @Title("Проверяем, что имя сохраненного мероприятия соответствует ранее введенному")
     @Test(dependsOnMethods = "clickButtonSave")
     public void checkNameEvent() {
-        calendarPageHelper.checkNameEvent();
+        calendarPageHelper.checkNameEvent(TestData.nameEvent);
     }
 
     @Title("Удаляем мероприятие из календаря")
     @Test(dependsOnMethods = "checkNameEvent")
     public void deleteEvent() {
-        calendarPageHelper.removeEventFromCalendar();
+        calendarPageHelper.deleteEvent();
     }
 
     @Title("Логаут")

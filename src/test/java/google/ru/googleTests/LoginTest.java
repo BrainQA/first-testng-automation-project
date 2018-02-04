@@ -25,7 +25,7 @@ public class LoginTest extends BaseSetup {
     public MainPage mainPage;
     public LoginPageHelper loginPageHelper;
     public MainPageHelper mainPageHelper;
-    public BaseSetup testBase;
+
 
     private static class TestData {
         private static String email = "iiiiivanovivan2@gmail.com";
@@ -54,7 +54,6 @@ public class LoginTest extends BaseSetup {
         mainPage = new MainPage(driver);
         loginPageHelper = new LoginPageHelper(driver);
         mainPageHelper = new MainPageHelper(driver);
-        testBase = new BaseSetup();
     }
 
     @Title("Кликаем по кнопке Войти")
