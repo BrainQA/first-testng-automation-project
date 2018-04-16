@@ -1,9 +1,11 @@
 package google.ru.googleTests.testsLogic;
 
 import google.ru.googleTests.pages.CalendarPage;
+import jnr.ffi.Struct;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
+import java.awt.*;
 import java.util.Formatter;
 
 import static org.junit.Assert.assertEquals;
@@ -13,6 +15,8 @@ import static org.junit.Assert.assertNotNull;
 public class CalendarPageHelper extends CalendarPage {
 
     private Actions actions;
+    //private TextField fieldAddName;
+    private TextField getFieldDescription;
 
     public CalendarPageHelper(WebDriver driver) {
         super(driver);
@@ -21,62 +25,61 @@ public class CalendarPageHelper extends CalendarPage {
     //Кликаем на значок приложения Календарь
     public void clickAppCalendar() {
         waitAppCalendar();
-        appCalendar.click();
+        getAppCalendar().click();
     }
 
     //Кликаем по Кнопке ОК на всплывающем окне
     public void clickButtonOK() {
-        buttonOK.click();
+        getButtonOK().click();
     }
 
     //Кликаем по кннопке Создать мероприятие
     public void clickButtonCreateEvent() throws InterruptedException {
-        createEvent.click();
+        getCreateEvent().click();
     }
 
     //В поле Добавить название вставляем название мероприятия
     public void inputNameEvent(String nameEvent) {
-        fieldAddName.sendKeys(nameEvent);
+        setFieldAddName(fieldAddName);
     }
 
     //Проверяем, что текущая дата соответствует дате начала мероприятия
     public void checkDateStartEvent() {
-        fieldStartDate.getText();
+        getFieldStartDate().getText();
     }
 
-    //Проверяем доступность чек бокса Весь день, если доступен, то проставляем
+    //Проверяем доступность чек бокса Весь деньe, если доступен, то проставляем
     public void verifyCheckBoxAndClick() {
-        checkBoxAllDay.isSelected();
-        checkBoxAllDay.click();
+        getCheckBoxAllDay().isSelected();
+        getCheckBoxAllDay().click();
     }
 
     //Проверяем доступность поля Периодичность и выбираем Ежедневно
     public void choosePeriodicityEventDaily() throws InterruptedException {
-        listPeriodicityEvent.isEnabled();
-        listPeriodicityEvent.click();
+        getListPeriodicityEvent().isEnabled();
+        getListPeriodicityEvent().click();
         choosePeriodicityDaily();
-        //Thread.sleep(2000);
     }
 
     //Проверяем доступность поля Укажите место проведения
     public void inputPlaceLocation(String placeLocation) {
-        fieldPlaceLocation.isEnabled();
-        fieldPlaceLocation.sendKeys(placeLocation);
+        getFieldPlaceLocation().isEmpty();
+        //setFieldPlaceLocation().click;
     }
 
     //Проверяем доступность кнопки Добавить видеоконференцию
     public void checkButtonAddVideoConference() {
-        listAddVideoconference.isEnabled();
+        getButtonAddVideoconference().isEnabled();
     }
 
     //Проверяем доступность кнопки Добавить уведомление
     public void checkButtonAddNotification() {
-        buttonAddNotification.isEnabled();
+        getButtonAddNotification().isEnabled();
     }
 
     //Проверяем, что поле с email соответствует аккаунту
     public void checkAccordanceEmail(String email) {
-        String fieldEmail = fieldWithEmail.getText();
+        String fieldEmail = getFieldWithEmail().getText();
         assertEquals(email, fieldEmail);
         System.out.println("Cовпадение email: " + fieldEmail);
     }
@@ -94,30 +97,29 @@ public class CalendarPageHelper extends CalendarPage {
 
     //Прикрепляем файл к мероприятию
     public void attachFileForEvent() throws InterruptedException {
-        buttonAttachFile.click();
+        getButtonAttachFile().click();
         waitLoadedPageGoogleDisk();
-        buttonChoose.isEnabled();
-        buttonCancel.isEnabled();
-        buttonPreviouslySelected.click();
+        getButtonChoose().isEnabled();
+        getButtonCancel().isEnabled();
+        getButtonPreviouslySelected().click();
     }
 
     //Проверяем доступность кнопок в поле Описание
     public void checkButtonFieldDescription() {
-        buttonAttachFile.isEnabled();
-        buttonBold.isEnabled();
-        buttonCurcive.isEnabled();
-        buttonUnderLine.isEnabled();
-        buttonNumberedList.isEnabled();
-        buttonMarkedList.isEnabled();
-        buttonLink.isEnabled();
-        buttonRemoveFormatting.isEnabled();
+        getButtonAttachFile().isEnabled();
+        getButtonBold().isEnabled();
+        getButtonCursive().isEnabled();
+        getButtonUnderLine().isEnabled();
+        getButtonNumberedList().isEnabled();
+        getButtonMarkedList().isEnabled();
+        getButtonLink().isEnabled();
+        getButtonRemoveFormatting().isEnabled();
     }
 
     //Проверяем поле Описание и вводим текст
     public void checkFieldDescriptionAndInputText() {
-        if (fieldDescription.isSelected()) {
-        fieldDescription.click();
-        fieldDescription.sendKeys("I like to learn Java!"); }
+        if (getFieldDescription().isEnabled()) {
+        getFieldDescription.setText("I like to learn Java!"); }
         else {
             System.out.println("Поле 'Описание' не доступно для редактирования");
         }
@@ -125,26 +127,26 @@ public class CalendarPageHelper extends CalendarPage {
 
     //Нажимаем кнопку Сохранить
     public void clickButtonSave(){
-        buttonSave.click();
+        getButtonSave().click();
     }
 
     //Проверяем, что мероприятие сохранилось под введенным ранее именем
     public void checkNameEvent(String nameEvent) {
-        assertNotNull(eventNameInCalendar);
+        assertNotNull(getEventNameInCalendar());
     }
 
     //Удаляем мероприятие из календаря
     public void deleteEvent(){
-        eventNameInCalendar.click();
-        buttonDeleteEvent.click();
+        getEventNameInCalendar().click();
+        getButtonDeleteEvent().click();
     }
 
     //Удаляем мероприятие из календаря
     public void removeEventFromCalendar() {
-        actions.moveToElement(eventNameInCalendar).perform();
+        actions.moveToElement(getEventNameInCalendar()).perform();
         actions.contextClick().perform();
         waitLoadedButtonDeleteEvent();
-        buttonDeleteEventFromCalendar.click();
+        getButtonDeleteEventFromCalendar().click();
     }
 }
 

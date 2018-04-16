@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import ru.sbtqa.tag.pagefactory.annotations.ElementTitle;
 
 public class MainPage {
 
@@ -14,15 +15,27 @@ public class MainPage {
 
     public WebDriver driver;
 
-    //Аватарка аккаунта
+    @ElementTitle(value = "Аватарка аккаунта")
     @FindBy(xpath = "//div[@class='gb_hb gb_5c gb_Eg gb_R']")
-    protected WebElement accountButton;
+    private WebElement accountButton;
 
-    //Кнопка Войти для логина в Гугл аккаунт
+    @ElementTitle(value = "Кнопка Войти для логина в Гугл аккаунт")
     @FindBy(id = "gb_70")
-    protected WebElement enterButton;
+    private WebElement enterButton;
 
-    //Значок Приложения Google
+    @ElementTitle(value = "Значок Приложения Googl")
     @FindBy(xpath = ("//div[@class='gb_da gb_6c gb_R' or @id='gbwa']"))
-    protected WebElement applicationButton;
+    private WebElement applicationButton;
+
+    public WebElement getAccountButton() {
+        return accountButton;
+    }
+
+    public WebElement getEnterButton() {
+        return enterButton;
+    }
+
+    public WebElement getApplicationButton() {
+        return applicationButton;
+    }
 }

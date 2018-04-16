@@ -13,6 +13,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 
@@ -26,6 +30,7 @@ public class BaseSetup {
     public PhotosPage photosPage;
     protected WebDriver driver;
     protected WebDriverWait wait;
+    protected Properties props = new Properties();
     //private FirefoxDriver driver;
     //protected ChromeDriver driver;
     protected static String chromeDr = "webdriver.chrome.driver";
@@ -40,6 +45,12 @@ public class BaseSetup {
     @Title("Запуск браузера Chrome и переход на поисковую страницу google.ru")
     @BeforeTest
     protected void setupDriver() {
+//        try (InputStream inputStream = new FileInputStream(System.setProperties("config"))) {
+//            props.load(inputStream); }
+//        catch (IOException e) {
+//            System.out.println("Не удалось загрузить файл конфигурации");
+//            System.exit(1);
+//        }
         System.setProperty(chromeDr, pathChrome);
         driver = new ChromeDriver();
         driver.manage().window().maximize();

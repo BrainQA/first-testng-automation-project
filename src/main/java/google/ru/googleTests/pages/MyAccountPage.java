@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import ru.sbtqa.tag.pagefactory.annotations.ElementTitle;
 
 public class MyAccountPage {
 
@@ -14,7 +15,11 @@ public class MyAccountPage {
 
     public WebDriver driver;
 
-    //Тайтл страницы Защиты аккаунта
+    @ElementTitle(value = "Тайтл страницы Защиты аккаунта")
     @FindBy(xpath = ("//div[@class='N4lOwd']"))
     protected WebElement pageProtect;
+
+    public WebElement getPageProtect() {
+        return pageProtect;
+    }
 }

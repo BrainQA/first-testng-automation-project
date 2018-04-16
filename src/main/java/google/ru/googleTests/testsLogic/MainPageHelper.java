@@ -12,17 +12,17 @@ public class MainPageHelper extends MainPage {
 
     //Кликаем на аватарку аккаунта
     public void clickAccountButton() {
-        accountButton.click();
+        getAccountButton().click();
     }
 
     //Кликаем на кнопку Войти для логина в Гугл аккаунт
     public void clickEnterButton() {
-        enterButton.click();
+        getEnterButton().click();
     }
 
     //Нажимаем на значок Приложения Google
     public void clickApplicationButton() throws InterruptedException {
-        applicationButton.click();
+        getApplicationButton().click();
         Thread.sleep(3000);
     }
 }

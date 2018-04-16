@@ -12,13 +12,13 @@ public class LoginPageHelper extends LoginPage {
 
     //Логинимся в аккаунт Google
     public void login(String email, String password) {
-        enterButton.click();
-        emailField.clear();
-        emailField.sendKeys(email);
-        nextButton.click();
+        getEnterButton().click();
+        getEmailField().clear();
+        getEmailField().sendKeys(email);
+        getNextButton().click();
 //        passwordField.clear();
-        passwordField.sendKeys(password);
-        nextButton.click();
+        getPasswordField().sendKeys(password);
+        getNextButton().click();
     }
 
     private void assertEquals(boolean equals) {
@@ -26,37 +26,37 @@ public class LoginPageHelper extends LoginPage {
 
     //Проверка текста предупреждающего сообщения при неверном email
     public void checkWarningText(String warningMessageWrongEmail) {
-        assertEquals(warningText.getText().equals(warningMessageWrongEmail));
+        assertEquals(getWarningText().getText().equals(warningMessageWrongEmail));
         System.out.println("Текст аларма: " + warningMessageWrongEmail);
-        emailField.clear();
+        getEmailField().clear();
     }
 
     //Проверка текста предупреждающего сообщения при неверном пароле
     public void checkAlertText(String warningMessageWrongPassword) {
-        assertEquals(alertText.getText().equals(warningMessageWrongPassword));
+        assertEquals(getAlertText().getText().equals(warningMessageWrongPassword));
         System.out.println("Текст аларма: " + warningMessageWrongPassword);
-        passwordField.clear();
+        getPasswordField().clear();
     }
 
 
     //Выходим из аккаунта
     public void logout() {
-        accountButton.click();
-        logoutButton.click();
+        getAccountButton().click();
+        getLogoutButton().click();
     }
 
     //В поле для ввода email или Номер телефона при логине вводим email
     public void inputEmailField(String email) {
-        emailField.sendKeys(email);
+        getEmailField().sendKeys(email);
     }
 
     //Кликаем по кнопке Далее после ввода email
     public void clickNextButton() {
-        nextButton.click();
+        getNextButton().click();
     }
 
     //В поле для ввода пароля при логине вводим пароль
     public void inputPasswordField(String password) {
-        passwordField.sendKeys(password);
+        getPasswordField().sendKeys(password);
     }
 }
